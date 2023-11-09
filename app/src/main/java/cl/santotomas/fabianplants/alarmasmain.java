@@ -1,14 +1,19 @@
 package cl.santotomas.fabianplants;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TimePicker;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Calendar;
 
 public class alarmasmain extends AppCompatActivity {
     ImageButton habitos;
@@ -57,11 +62,37 @@ public class alarmasmain extends AppCompatActivity {
                 hour = selectedHour;
                 minute = selectedMinute;
 
-                // Aquí puedes configurar la lógica para programar las notificaciones en la hora seleccionada.
-                // Puedes usar AlarmManager y BroadcastReceiver para manejar las notificaciones.
-                // Consulta la documentación de Android para obtener más detalles.
+                // Programa la notificación en la hora seleccionada
+                scheduleNotification(hour, minute);
             }
         }, hour, minute, true);
         timePickerDialog.show();
+    }
+
+    private void scheduleNotification(int hour, int minute) {
+        // Obtén una instancia de AlarmManager
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+        // Crea un Intent para el BroadcastReceiver que manejará la notificación
+        Intent notificationIntent = new Intent(this, NotificationReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                this,
+                0,
+                notificationIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT
+        );
+
+        // Configura el tiempo de la notificación
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, hour);
+        calendar.set(Calendar.MINUTE, minute);
+        calendar.set(Calendar.SECOND, 0);
+
+        // Programa la notificación
+        alarmManager.setExact(
+                AlarmManager.RTC_WAKEUP,
+                calendar.getTimeInMillis(),
+                pendingIntent
+        );
     }
 }
