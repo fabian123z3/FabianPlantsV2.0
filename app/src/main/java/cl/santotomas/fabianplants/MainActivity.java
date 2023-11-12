@@ -25,11 +25,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Verifica la versión de Android antes de crear el canal (solo necesario en versiones Oreo y superiores)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            createNotificationChannel();
-        }
-
         pcomunes = findViewById(R.id.comunes);
         pexoticas = findViewById(R.id.exoticas);
         pfruteras = findViewById(R.id.fruteras);
@@ -77,17 +72,4 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    private void createNotificationChannel() {
-        // Crea un canal de notificación con ID "channel_id"
-        CharSequence name = "Channel Name";
-        String description = "Channel Description";
-        int importance = NotificationManager.IMPORTANCE_DEFAULT;
-        NotificationChannel channel = new NotificationChannel("channel_id", name, importance);
-        channel.setDescription(description);
-
-        // Registra el canal en el sistema
-        NotificationManager notificationManager = getSystemService(NotificationManager.class);
-        notificationManager.createNotificationChannel(channel);
     }
-}
