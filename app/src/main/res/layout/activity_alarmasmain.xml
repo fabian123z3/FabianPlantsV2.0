@@ -8,92 +8,17 @@
     android:background="#2b2b2b"
     tools:context=".alarmasmain">
 
-    <TextView
-        android:id="@+id/textView14"
+    <Button
+        android:id="@+id/btnSetAlarm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/baloo_da"
-        android:text="ALARMAS Y NOTIFICACIONES"
-        android:textColor="#F4EFEF"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toTopOf="@+id/selectTimeButton"
+        android:onClick="showTimePickerDialog"
+        android:text="Configurar Alarma"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/baloo_da"
-        android:text="HABITOS"
-        android:textColor="#F4EFEF"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/selectTimeButton"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14"
-        app:layout_constraintVertical_bias="0.1" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/baloo_da"
-        android:text="TROFEOS"
-        android:textColor="#EFECEC"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
-        app:layout_constraintStart_toEndOf="@+id/selectTimeButton"
-        app:layout_constraintTop_toBottomOf="@+id/textView14"
-        app:layout_constraintVertical_bias="0.1" />
-
-    <ImageButton
-        android:id="@+id/Habitos"
-        android:layout_width="99dp"
-        android:layout_height="117dp"
-        android:backgroundTint="#2b2b2b"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toStartOf="@+id/selectTimeButton"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12"
-        app:srcCompat="@drawable/regando_plantas" />
-
-    <ImageButton
-        android:id="@+id/Trofeo"
-        android:layout_width="100dp"
-        android:layout_height="117dp"
-        android:backgroundTint="#2b2b2b"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintStart_toEndOf="@+id/selectTimeButton"
-        app:layout_constraintTop_toBottomOf="@+id/textView13"
-        app:srcCompat="@drawable/trofeo_deportivo" />
-
-    <Button
-        android:id="@+id/selectTimeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Seleccionar Hora"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="#FF4081"
-        android:textColor="#FFFFFF" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.9" />
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -19,13 +19,11 @@ public class alarmasmain extends AppCompatActivity {
     ImageButton habitos;
     ImageButton trofeos;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarmasmain);
-
-        habitos = findViewById(R.id.Habitos);
-        trofeos = findViewById(R.id.Trofeo);
 
 
         habitos.setOnClickListener(new View.OnClickListener() {
@@ -44,6 +42,4 @@ public class alarmasmain extends AppCompatActivity {
             }
         });
 
-
-    }
-}
+    }}

@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -28,48 +32,11 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyB7xb1BLtN05BGNw6SOEAo8ZeJi51gTzfQ" />
 
-        <activity
-            android:name=".MapsActivity"
-            android:exported="false"
-            android:label="@string/title_activity_maps" />
-        <activity
-            android:name=".trofeomain"
-            android:exported="false" />
-        <activity
-            android:name=".alarmasmain"
-            android:exported="false" />
-        <activity
-            android:name=".habitomain"
-            android:exported="false" />
-        <activity
-            android:name=".fruterasmain"
-            android:exported="false" />
-        <activity
-            android:name=".exoticasmain"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".comunesmain"
-            android:exported="false" />
-        <activity
-            android:name=".SplashScreen"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <receiver
-            android:name=".NotificationReceiver"
-            android:exported="false" />
+        <!-- Tus actividades -->
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
 </manifest>
