@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "14617312505",
+    "project_id": "fabianplants-c3a2b",
+    "storage_bucket": "fabianplants-c3a2b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:14617312505:android:7e246a285a95c41da8f628",
+        "android_client_info": {
+          "package_name": "cl.santotomas.fabianplants"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAGhMmm7ZTeGsLTDJVFMMO3EkBAr6TuTY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
