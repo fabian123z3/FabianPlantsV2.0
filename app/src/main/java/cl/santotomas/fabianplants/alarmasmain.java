@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -19,6 +20,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Calendar;
 
 public class alarmasmain extends AppCompatActivity {
+    ImageButton Habitos;
+    ImageButton Trofeos;
     private Button btnSeleccionarFechaHora;
     private Button btnGuardarAlarma;
     private TextView textViewFechaSeleccionada;
@@ -34,6 +37,24 @@ public class alarmasmain extends AppCompatActivity {
         btnGuardarAlarma = findViewById(R.id.btnGuardarAlarma);
         textViewFechaSeleccionada = findViewById(R.id.textViewFechaSeleccionada);
         textViewHoraSeleccionada = findViewById(R.id.textViewHoraSeleccionada);
+        Habitos = findViewById(R.id.habitos);
+        Trofeos = findViewById(R.id.trofeos);
+
+        Habitos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(alarmasmain.this, habitomain.class);
+                startActivity(intent);
+            }
+        });
+
+        Habitos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(alarmasmain.this, trofeomain.class);
+                startActivity(intent);
+            }
+        });
 
         btnSeleccionarFechaHora.setOnClickListener(new View.OnClickListener() {
             @Override
