@@ -34,6 +34,14 @@ public class PlantaAdapter extends RecyclerView.Adapter<PlantaAdapter.PlantaView
         imagenMap = new HashMap<>();
         imagenMap.put("rosa", R.drawable.rosa_imagen);
         imagenMap.put("tulipán", R.drawable.tulipan_imagen);
+        imagenMap.put("girasol", R.drawable.girasol_imagen);
+        imagenMap.put("orquídea", R.drawable.orquidea_imagen);
+        imagenMap.put("menta", R.drawable.menta_imagen);
+        imagenMap.put("cactus", R.drawable.cactus_imagen);
+        imagenMap.put("aloe_vera", R.drawable.aloe_imagen);
+        imagenMap.put("bambú", R.drawable.bambu_imagen);
+        imagenMap.put("pino", R.drawable.pino_imagen);
+        imagenMap.put("caléndula", R.drawable.calendula_imagen);
         // Agrega más asociaciones de nombres de plantas con recursos de imagen según sea necesario
     }
 
@@ -49,7 +57,7 @@ public class PlantaAdapter extends RecyclerView.Adapter<PlantaAdapter.PlantaView
         Planta planta = plantaList.get(position);
 
         // Configurar los datos en la vista
-        holder.plantaName.setText(planta.getNombre().substring(0,1).toUpperCase() + planta.getNombre().substring(1)); // Capitalizar el nombre
+        holder.plantaName.setText(planta.getNombre().substring(0, 1).toUpperCase() + planta.getNombre().substring(1)); // Capitalizar el nombre
         int idImagen = obtenerIdImagen(planta.getNombre().toLowerCase()); // Obtener el ID del recurso de imagen
 
         Glide.with(context)
