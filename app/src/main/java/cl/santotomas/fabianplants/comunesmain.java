@@ -30,7 +30,7 @@ public class comunesmain extends AppCompatActivity {
         plantaList.add(new Planta("Cactus"));
         plantaList.add(new Planta("Aloe vera"));
         plantaList.add(new Planta("Bambú"));
-        plantaList.add(new Planta("Pothos"));
+        plantaList.add(new Planta("Pino"));
         plantaList.add(new Planta("Caléndula"));
 
         // Configurar el RecyclerView y el adaptador

@@ -11,18 +11,30 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide; // Agrega esta importación para usar Glide
+import com.bumptech.glide.Glide;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class PlantaAdapter extends RecyclerView.Adapter<PlantaAdapter.PlantaViewHolder> {
 
     private List<Planta> plantaList;
     private Context context;
+    private Map<String, Integer> imagenMap; // Mapa para asociar nombres de plantas con recursos de imagen
 
     public PlantaAdapter(Context context, List<Planta> plantaList) {
         this.context = context;
         this.plantaList = plantaList;
+        cargarImagenes(); // Inicializar el mapa de imágenes al crear el adaptador
+    }
+
+    // Método para cargar imágenes en el mapa
+    private void cargarImagenes() {
+        imagenMap = new HashMap<>();
+        imagenMap.put("rosa", R.drawable.rosa_imagen);
+        imagenMap.put("tulipán", R.drawable.tulipan_imagen);
+        // Agrega más asociaciones de nombres de plantas con recursos de imagen según sea necesario
     }
 
     @NonNull
@@ -37,25 +49,25 @@ public class PlantaAdapter extends RecyclerView.Adapter<PlantaAdapter.PlantaView
         Planta planta = plantaList.get(position);
 
         // Configurar los datos en la vista
-        holder.plantaName.setText(planta.getNombre());
-
-        // Cargar imágenes utilizando Glide
-        // Asume que el nombre de la imagen coincide con el nombre de la planta
-        String nombreImagen = planta.getNombre().toLowerCase().replace("", "_"); // Convierte a minúsculas y reemplaza espacios
-        int idImagen = context.getResources().getIdentifier(nombreImagen, "drawable", context.getPackageName());
+        holder.plantaName.setText(planta.getNombre().substring(0,1).toUpperCase() + planta.getNombre().substring(1)); // Capitalizar el nombre
+        int idImagen = obtenerIdImagen(planta.getNombre().toLowerCase()); // Obtener el ID del recurso de imagen
 
         Glide.with(context)
                 .load(idImagen)
-                .placeholder(R.drawable.rosa_imagen) // Imagen de carga mientras se carga la imagen
-                .error(R.drawable.rosa_imagen) // Imagen de error si no se puede cargar la imagen
+                .placeholder(R.drawable.ic_launcher_foreground) // Imagen de carga mientras se carga la imagen
+                .error(R.drawable.arbol) // Imagen de error si no se puede cargar la imagen
                 .into(holder.plantaImage);
-
-        // Agregar lógica adicional según sea necesario
     }
 
     @Override
     public int getItemCount() {
         return plantaList.size();
+    }
+
+    // Método para obtener el ID del recurso de imagen según el nombre de la planta
+    private int obtenerIdImagen(String nombrePlanta) {
+        Integer idImagen = imagenMap.get(nombrePlanta);
+        return idImagen != null ? idImagen : R.drawable.arbol; // Por defecto, usa "arbol" si no se encuentra la imagen
     }
 
     public static class PlantaViewHolder extends RecyclerView.ViewHolder {
