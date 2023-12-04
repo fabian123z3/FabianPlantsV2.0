@@ -24,6 +24,20 @@
         app:layout_constraintVertical_bias="0.338" />
 
     <TextView
+        android:id="@+id/logrosTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/baloo_da"
+        android:textAlignment="center"
+        android:textColor="#EAE7E7"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Logros aparecerán aquí" />
+
+    <TextView
         android:id="@+id/textView15"
         android:layout_width="225dp"
         android:layout_height="104dp"
@@ -39,6 +53,7 @@
         app:layout_constraintVertical_bias="0.087" />
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="409dp"
         android:layout_height="127dp"
         android:orientation="horizontal"

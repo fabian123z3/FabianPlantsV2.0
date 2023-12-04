@@ -40,10 +40,10 @@ public class alarmasmain extends AppCompatActivity {
         Habitos = findViewById(R.id.habitos);
         Trofeos = findViewById(R.id.trofeos);
 
-        Habitos.setOnClickListener(new View.OnClickListener() {
+        Trofeos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(alarmasmain.this, habitomain.class);
+                Intent intent = new Intent(alarmasmain.this, trofeomain.class);
                 startActivity(intent);
             }
         });
@@ -51,7 +51,7 @@ public class alarmasmain extends AppCompatActivity {
         Habitos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(alarmasmain.this, trofeomain.class);
+                Intent intent = new Intent(alarmasmain.this, habitomain.class);
                 startActivity(intent);
             }
         });

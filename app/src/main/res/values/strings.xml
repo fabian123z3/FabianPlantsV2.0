@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">FabianPlants</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="plant_image">Descripción de la imagen de la planta</string>
 </resources>
