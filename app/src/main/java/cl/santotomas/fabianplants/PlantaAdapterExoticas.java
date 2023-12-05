@@ -1,47 +1,38 @@
 package cl.santotomas.fabianplants;
 
-// PlantaAdapter.java
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class PlantaAdapter extends RecyclerView.Adapter<PlantaAdapter.PlantaViewHolder> {
+public class PlantaAdapterExoticas extends RecyclerView.Adapter<PlantaAdapterExoticas.PlantaViewHolder> {
 
     private List<Planta> plantaList;
     private Context context;
-    private Map<String, Integer> imagenMap; // Mapa para asociar nombres de plantas con recursos de imagen
+    private Map<String, Integer> imagenMap;
 
-    public PlantaAdapter(Context context, List<Planta> plantaList) {
+    public PlantaAdapterExoticas(Context context, List<Planta> plantaList) {
         this.context = context;
         this.plantaList = plantaList;
-        cargarImagenes(); // Inicializar el mapa de imágenes al crear el adaptador
+        cargarImagenes();
     }
 
-    // Método para cargar imágenes en el mapa
     private void cargarImagenes() {
         imagenMap = new HashMap<>();
-        imagenMap.put("rosa", R.drawable.rosa_imagen);
-        imagenMap.put("tulipán", R.drawable.tulipan_imagen);
-        imagenMap.put("girasol", R.drawable.girasol_image);
-        imagenMap.put("orquídea", R.drawable.orquidea_imagen);
-        imagenMap.put("menta", R.drawable.menta_imagen);
-        imagenMap.put("cactus", R.drawable.cactus_imagen);
-        imagenMap.put("aloe vera", R.drawable.aloe_imagen);
-        imagenMap.put("bambú", R.drawable.bambu_imagen);
-        imagenMap.put("pino", R.drawable.pino_imagen);
-        imagenMap.put("caléndula", R.drawable.calendula_imagen);
-        imagenMap.put("Mariguana", R.drawable.mariguana_imagen);
-        // Agrega más asociaciones de nombres de plantas con recursos de imagen según sea necesario
+        imagenMap.put("Mariguana", R.drawable.girasol_image);
+        // Agrega más plantas y sus imágenes según sea necesario
     }
 
     @NonNull
@@ -55,14 +46,13 @@ public class PlantaAdapter extends RecyclerView.Adapter<PlantaAdapter.PlantaView
     public void onBindViewHolder(@NonNull PlantaViewHolder holder, int position) {
         Planta planta = plantaList.get(position);
 
-        // Configurar los datos en la vista
-        holder.plantaName.setText(planta.getNombre().substring(0, 1).toUpperCase() + planta.getNombre().substring(1)); // Capitalizar el nombre
-        int idImagen = obtenerIdImagen(planta.getNombre().toLowerCase()); // Obtener el ID del recurso de imagen
+        holder.plantaName.setText(planta.getNombre().substring(0, 1).toUpperCase() + planta.getNombre().substring(1));
+        int idImagen = obtenerIdImagen(planta.getNombre().toLowerCase());
 
         Glide.with(context)
                 .load(idImagen)
-                .placeholder(R.drawable.ic_launcher_foreground) // Imagen de carga mientras se carga la imagen
-                .error(R.drawable.arbol) // Imagen de error si no se puede cargar la imagen
+                .placeholder(R.drawable.ic_launcher_foreground)
+                .error(R.drawable.arbol)
                 .into(holder.plantaImage);
     }
 
@@ -71,10 +61,9 @@ public class PlantaAdapter extends RecyclerView.Adapter<PlantaAdapter.PlantaView
         return plantaList.size();
     }
 
-    // Método para obtener el ID del recurso de imagen según el nombre de la planta
     private int obtenerIdImagen(String nombrePlanta) {
         Integer idImagen = imagenMap.get(nombrePlanta);
-        return idImagen != null ? idImagen : R.drawable.arbol; // Por defecto, usa "arbol" si no se encuentra la imagen
+        return idImagen != null ? idImagen : R.drawable.arbol;
     }
 
     public static class PlantaViewHolder extends RecyclerView.ViewHolder {

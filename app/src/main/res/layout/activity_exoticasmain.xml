@@ -37,6 +37,7 @@
         app:layout_constraintVertical_bias="0.116" />
 
     <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="408dp"
         android:layout_height="149dp"
         android:orientation="horizontal"
@@ -54,5 +55,15 @@
             android:layout_weight="1"
             app:srcCompat="@drawable/systems_and_technology_programming_company_logo" />
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ListaExoticos"
+        android:layout_width="409dp"
+        android:layout_height="357dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.601" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
